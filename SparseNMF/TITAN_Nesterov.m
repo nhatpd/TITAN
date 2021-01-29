@@ -30,7 +30,6 @@ function [W,H,e,t] = TITAN_Nesterov(X,r,sparsity,options,kappa)
 
 cputime0 = tic; 
 [m,n]=size(X);
-kappa_1=kappa-1;
 %% Parameters of NMF algorithm
 if nargin < 4
     options = [];
@@ -61,6 +60,7 @@ if ~isfield(options,'alphaparam')
     options.alphaparam = 0.3; 
 end
 
+kappa_1 = kappa - 1;
 delta=options.delta; % to check when to stop the inner loop 
 alphaparam=options.alphaparam; % to control the number of inner loop.  
 %% Main loop
